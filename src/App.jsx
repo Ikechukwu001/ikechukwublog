@@ -1,16 +1,9 @@
 import { useEffect, useState } from "react";
 import { client } from "./sanityClient";
 import { Link } from 'react-router-dom';
-import ReactGA from 'react-ga4';
 
 export default function App() {
   const [posts, setPosts] = useState([]);
-
-  // Initialize Google Analytics
-    useEffect(() => {
-    ReactGA.initialize("G-KK1XK4L8W4"); 
-    ReactGA.send("pageview");
-  }, []);
 
   useEffect(() => {
     client.fetch(`*[_type == "post"]{
